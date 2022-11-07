@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## REST API: https://quizserviceapp.herokuapp.com/
+## REST API: https://quizservicebackend.herokuapp.com/
 
 ## Available Scripts
 
