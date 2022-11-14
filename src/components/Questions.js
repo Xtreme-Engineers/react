@@ -4,7 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 
-export default function Questions({showQuestions, params}){
+export default function Questions(){
   
     const [questions, setQuestions] = React.useState([])
     const [id, setId] = React.useState('')
@@ -22,7 +22,7 @@ export default function Questions({showQuestions, params}){
     }
 
     const fetchQuestions = () => {
-        fetch(`https://quizservicebackend.herokuapp.com/quizlist`)
+        fetch('https://quizservicebackend.herokuapp.com/quizlist')
         .then(response => response.json())
         .then(data => setQuestions(data[id].questions))
     }
