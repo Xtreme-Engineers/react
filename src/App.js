@@ -1,9 +1,8 @@
 import './App.css';
-import Questions from './components/Quizlist';
+import Questions from './components/Questions';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Questions from './components/Questions';
 
 function App() {
   return (
