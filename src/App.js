@@ -1,5 +1,5 @@
 import './App.css';
-import Quizlist from './components/Quizlist';
+import Questions from './components/Quizlist';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
