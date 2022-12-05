@@ -1,8 +1,16 @@
 import './App.css';
 import Questions from './components/Questions';
+import Quizlist from './components/Quizlist';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 
 function App() {
   return (
@@ -15,9 +23,12 @@ function App() {
         </Toolbar>
 
       </AppBar>
-
-      <Questions />
-
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Quizlist />} />
+          <Route path="/questions" element={<Questions />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
