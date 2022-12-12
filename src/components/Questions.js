@@ -21,10 +21,21 @@ export default function Questions(){
         fetchQuestions();
     }
 
-    const fetchQuestions = () => {
-        fetch('https://quizservicebackend.herokuapp.com/quizlist')
-        .then(response => response.json())
-        .then(data => setQuestions(data[id].questions))
+    const handleSubmitPress = (event) => {
+        event.preventDefault();
+
+        fetch('https://quizservicebackend.fly.dev/answers', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.Stringify({
+                answerText: answer,
+                question: { questionId: id }
+            })
+        })
+        //.then(response => response.json())
+        //.then(data => setQuestions(data[id].questions))
     }
 
     const columns = [
