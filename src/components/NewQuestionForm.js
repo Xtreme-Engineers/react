@@ -14,6 +14,14 @@ const style = {
     p: 4,
   };
 
+  const styleText = {
+    position: 'absolute',
+    left: '50%',
+    textAlign: 'center',
+    border: '2px dotted blue',
+    backgroundColor: 'lightblue',
+  };
+
   // IF WE WANT TO STYLE THE BUTTON
   const showButtonStyle = {
     // NOT DONE
@@ -23,6 +31,8 @@ const NewQuestionForm = ({ quizData }) => {
     const [open, setIsOpen] = useState(false);
     const [inputText, setInputText] = useState('');
     const [questionText, setQuestionText] = useState('');
+    const [textVisible, setTextVisible] = useState(false);
+
 
     const handleOpen = () => setIsOpen(true);
     const handleClose = () => setIsOpen(false);
@@ -33,13 +43,12 @@ const NewQuestionForm = ({ quizData }) => {
         handleClose();
 
         let updatedQuiz = quizData;
-
+        
         // this assumes questionId is auto_incremented on server-side!!!
+        
         updatedQuiz.questions.push({"questionText": inputText})
 
-        console.log(quizData.quizId);
-        console.log(updatedQuiz);
-
+        setTextVisible(prevTextVisible => !prevTextVisible);
         postNewQuestion(updatedQuiz);
     }
 
@@ -63,9 +72,10 @@ const NewQuestionForm = ({ quizData }) => {
 
     return (
         <div>
-            
-            <p>{questionText}</p>
-
+            { textVisible && (
+                <p style={styleText}>New Question posted: {questionText}</p>
+                )
+            }
             <button style={showButtonStyle} onClick={handleOpen}>Add new question</button>
             <Modal
                 open={open}

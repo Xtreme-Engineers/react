@@ -9,15 +9,15 @@ export default function Questions(){
     const [questions, setQuestions] = React.useState([])
     const [id, setId] = React.useState('')
 
-    useEffect( () => {
+/*    useEffect( () => {
         fetchQuestions();
       }, [])
-
+*/
     function handleChange(event) {
         setId(event.target.value)
     }
 
-    function handleClick() {
+/*    function handleClick() {
         fetchQuestions();
     }
 
@@ -37,7 +37,7 @@ export default function Questions(){
         //.then(response => response.json())
         //.then(data => setQuestions(data[id].questions))
     }
-
+*/
     const columns = [
         { field: "questionId", sortable: true, filter: true },
         { field: "questionText", sortable: true, filter: true },

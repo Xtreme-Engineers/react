@@ -1,5 +1,5 @@
 import './App.css';
-import Questions from './components/Questions';
+//import Questions from './components/Questions';
 import Quizlist from './components/Quizlist';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -26,7 +26,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Quizlist />} />
-          <Route path="/questions" element={<Questions />} />
         </Routes>
       </BrowserRouter>
     </div>

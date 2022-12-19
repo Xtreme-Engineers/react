@@ -4,6 +4,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import { Link } from 'react-router-dom';
 
+import tempJSON from './TempJSON';
+
 import NewQuestionForm from './NewQuestionForm';
 
 function Quizlist() {
@@ -15,11 +17,6 @@ function Quizlist() {
 
   const ButtonCellRenderer = () => {
     return (
-      /*    MIGHT BE USEFUL IF NEED TO NAVIGATE TO SEPARATE ANSWER PAGE
-      <Link to={{ pathname: "/questions", state: { selectedId }}}>
-        <button onClick={() => setSelectedId(gridRef.current.getSelectedNodes())}>Select Quiz</button>
-      </Link>
-      */
       <button onClick={() => buttonClickHandler(gridRef.current.getSelectedNodes())}>Select Quiz</button>
     );
   }
@@ -45,13 +42,22 @@ function Quizlist() {
     fetchQuizzes();
   }, [])
 
+const fetchQuizzes = () => {
+  console.log('fetching...');
+  console.log('data found: ' + tempJSON);
+  quizzes.current = tempJSON.tempJSON;
+  setRowData(tempJSON.tempJSON);
+}
+  
+  /*
   const fetchQuizzes = () => {
     console.log('fetching data...');
     fetch('https://quizservicebackend.fly.dev/quizzes')
     .then(response => response.json())
     .then(data => assignData(data))
   }
-
+  
+  
   const assignData = (data) => {
     console.log('data fetched!');
     console.log('assigning data...');
@@ -59,7 +65,7 @@ function Quizlist() {
     setRowData(data);
     console.log('done!');
   }
-
+  */
   const buttonClickHandler = (row) => {
     console.log(row[0].rowIndex);
     console.log(quizzes.current[row[0].rowIndex].questions)
